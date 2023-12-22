@@ -8,7 +8,7 @@ services:
       - PUID=13001
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/sonarr-config:/config
       - /home/user/ezarr/data:/data
