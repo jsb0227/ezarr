@@ -23,7 +23,7 @@ services:
       - PUID=13002
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/radarr-config:/config
       - /home/user/ezarr/data:/data
@@ -38,10 +38,12 @@ services:
       - PUID=13003
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
-      - /home/user/ezarr/config/lidarr-config:/config
-      - /home/user/ezarr/data:/data
+      - /nfs/lidarr/config:/config
+      - /media/media/music:/music 
+      - /media/downloads:/downloads
+
     ports:
       - "8686:8686"
     restart: unless-stopped
@@ -53,7 +55,7 @@ services:
       - PUID=13004
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/readarr-config:/config
       - /home/user/ezarr/data:/data
@@ -75,21 +77,6 @@ services:
       - "8090:8090"
     restart: unless-stopped
 
-  audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:latest
-    container_name: audiobookshelf
-    environment:
-      - AUDIOBOOKSHELF_UID=13009
-      - AUDIOBOOKSHELF_GID=13000
-    volumes:
-      - /home/user/ezarr/config/audiobookshelf:/config
-      - /home/user/ezarr/data/audiobooks:/audiobooks
-      - /home/user/ezarr/data/podcasts:/podcasts
-      - /home/user/ezarr/data/metadata:/metadata
-    ports:
-      - "13378:80"
-    restart: unless-stopped
-
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
@@ -97,7 +84,7 @@ services:
       - PUID=13006
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/prowlarr-config:/config
     ports:
@@ -126,26 +113,11 @@ services:
     environment:
       - PUID=${UID}
       - PGID=13000
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/tautulli-config:/config
     ports:
       - "8181:8181"
-    restart: unless-stopped
-
-  jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
-    container_name: jellyfin
-    environment:
-      - PUID=${UID}
-      - PGID=13000
-      - UMASK=002
-      - TZ=Europe/Amsterdam
-    volumes:
-      - /home/user/ezarr/config/jellyfin-config:/config
-      - /home/user/ezarr/data/media:/data
-    ports:
-      - "8096:8096"
     restart: unless-stopped
 
   qbittorrent:
@@ -155,7 +127,7 @@ services:
       - PUID=13007
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
       - WEBUI_PORT=8080
     volumes:
       - /home/user/ezarr/config/qbittorrent-config:/config
@@ -173,7 +145,7 @@ services:
       - PUID=13011
       - PGID=13000
       - UMASK=002
-      - TZ=Europe/Amsterdam
+      - TZ=Europe/London
     volumes:
       - /home/user/ezarr/config/sabnzbd-config:/config
       - /home/user/ezarr/data/usenet:/data/usenet
