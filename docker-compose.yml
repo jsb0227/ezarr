@@ -5,8 +5,8 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=13001
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -20,8 +20,8 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
-      - PUID=13002
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -35,8 +35,8 @@ services:
     image: lscr.io/linuxserver/lidarr:latest
     container_name: lidarr
     environment:
-      - PUID=13003
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -51,8 +51,8 @@ services:
     image: lscr.io/linuxserver/readarr:develop
     container_name: readarr
     environment:
-      - PUID=13004
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -66,8 +66,8 @@ services:
     image: lscr.io/linuxserver/mylar3:latest
     container_name: mylar3
     environment:
-      - PUID=13005
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
     volumes:
       - /nfs/mylar3/config:/config
@@ -80,8 +80,8 @@ services:
     image: lscr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
     environment:
-      - PUID=13006
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
@@ -95,8 +95,8 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=13010
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - VERSION=docker
       - PLEX_CLAIM=
     volumes:
@@ -110,8 +110,8 @@ services:
     depends_on:
       - plex
     environment:
-      - PUID=${UID}
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - TZ=Europe/London
     volumes:
       - /nfs/tautulli/config:/config
@@ -123,8 +123,8 @@ services:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     environment:
-      - PUID=13007
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
       - WEBUI_PORT=8080
@@ -141,8 +141,8 @@ services:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
     environment:
-      - PUID=13011
-      - PGID=13000
+      - PUID=1000
+      - PGID=1002
       - UMASK=002
       - TZ=Europe/London
     volumes:
