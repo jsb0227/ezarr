@@ -130,7 +130,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - /nfs/qbittorrent/config:/config
-      - /media/downloads/torrents:/media/downloads/torrents
+      - /media/downloads:/media
     ports:
       - "8080:8080"
       - "6881:6881"
@@ -147,7 +147,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/qbittorrent/config:/config
-      - /media/downloads/usenet:/media/downloads/usenet
+      - /media/downloads:/media
     ports:
       - "8081:8080"
     restart: unless-stopped
