@@ -11,7 +11,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/sonarr/config:/config
-      - /media/media:/media
+      - /data:/data
     ports:
       - "8989:8989"
     restart: unless-stopped
@@ -26,7 +26,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/radarr/config:/config
-      - /media/media:/media
+      - /data:/data
     ports:
       - "7878:7878"
     restart: unless-stopped
@@ -41,7 +41,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/lidarr/config:/config
-      - /media/media:/media
+      - /data:/data
 
     ports:
       - "8686:8686"
@@ -57,7 +57,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/readarr/config:/config
-      - /media/media:/media
+      - /data:/data
     ports:
       - "8787:8787"
     restart: unless-stopped
@@ -71,7 +71,7 @@ services:
       - UMASK=002
     volumes:
       - /nfs/mylar3/config:/config
-      - /media/media:/media
+      - /data:/data
     ports:
       - "8090:8090"
     restart: unless-stopped
@@ -101,7 +101,7 @@ services:
       - PLEX_CLAIM=
     volumes:
       - /nfs/plex/config:/config
-      - /media/media:/media
+      - /data/media:/data/media
     restart: unless-stopped
 
   tautulli:
@@ -130,7 +130,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - /nfs/qbittorrent/config:/config
-      - /media/downloads:/media
+      - /data/torrents:/data/torrents
     ports:
       - "8080:8080"
       - "6881:6881"
@@ -147,7 +147,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/qbittorrent/config:/config
-      - /media/downloads:/media
+      - /data/usenet:/data/usenet
     ports:
       - "8081:8080"
     restart: unless-stopped
