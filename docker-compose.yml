@@ -146,7 +146,7 @@ services:
       - UMASK=002
       - TZ=Europe/London
     volumes:
-      - /nfs/qbittorrent/config:/config
+      - /nfs/sabnzbd/config:/config
       - /data/usenet:/data/usenet
     ports:
       - "8081:8080"
