@@ -137,3 +137,9 @@ services:
     ports:
       - "8081:8080"
     restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30
