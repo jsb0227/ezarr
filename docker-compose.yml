@@ -138,6 +138,21 @@ services:
       - "8081:8080"
     restart: unless-stopped
 
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1002
+      - UMASK=002
+      - TZ=Europe/London
+    volumes:
+      - /nfs/bazarr/config:/config
+      - /data:/data
+    ports:
+      - "6767:6767"
+    restart: unless-stopped
+
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
