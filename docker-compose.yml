@@ -12,6 +12,7 @@ services:
     volumes:
       - /nfs/sonarr/config:/config
       - /data:/data
+    network_mode: "service:gluetun"
     ports:
       - "8989:8989"
     restart: unless-stopped
@@ -27,6 +28,7 @@ services:
     volumes:
       - /nfs/radarr/config:/config
       - /data:/data
+    network_mode: "service:gluetun"
     ports:
       - "7878:7878"
     restart: unless-stopped
@@ -42,7 +44,7 @@ services:
     volumes:
       - /nfs/lidarr/config:/config
       - /data:/data
-
+    network_mode: "service:gluetun"
     ports:
       - "8686:8686"
     restart: unless-stopped
@@ -58,6 +60,7 @@ services:
     volumes:
       - /nfs/readarr/config:/config
       - /data:/data
+    network_mode: "service:gluetun"
     ports:
       - "8787:8787"
     restart: unless-stopped
@@ -72,6 +75,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /nfs/prowlarr/config:/config
+    network_mode: "service:gluetun"
     ports:
       - "9696:9696"
     restart: unless-stopped
@@ -114,6 +118,7 @@ services:
       - UMASK=002
       - TZ=Europe/London
       - WEBUI_PORT=8080
+    network_mode: "service:gluetun"
     volumes:
       - /nfs/qbittorrent/config:/config
       - /data/torrents:/data/torrents
@@ -131,6 +136,7 @@ services:
       - PGID=1002
       - UMASK=002
       - TZ=Europe/London
+    network_mode: "service:gluetun"
     volumes:
       - /nfs/sabnzbd/config:/config
       - /data/usenet:/data/usenet
@@ -149,6 +155,7 @@ services:
     volumes:
       - /nfs/bazarr/config:/config
       - /data:/data
+    network_mode: "service:gluetun"
     ports:
       - "6767:6767"
     restart: unless-stopped
