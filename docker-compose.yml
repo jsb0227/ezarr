@@ -117,7 +117,8 @@ services:
     volumes:
       - /nfs/qbittorrent/config:/config
       - /data/torrents:/data/torrents
-    # ports:
+     # Below are commented out as the gluetun service passes these ports out (i.e. connect to 'qbittorrent' via 'gluetun')
+     # ports:
      # - "8080:8080"
      # - "6881:6881"
      # - "6881:6881/udp"
