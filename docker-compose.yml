@@ -164,9 +164,9 @@ services:
     container_name: gluetun
     environment:
       - VPN_SERVICE_PROVIDER=surfshark
-      - OPENVPN_USER=jbaylis.87@gmail.com
-      - OPENVPN_PASSWORD=c5g@f9uKB00p
-      - SERVER_COUNTRIES=Sweden 
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=4F2VxogM0d02Gc+/gQP5LxAQByCIBhBzOavUvUnr7lU= 
+      - WIREGUARD_ADDRESSES="10.14.0.2/16"
     cap_add: 
       - NET_ADMIN
     image: qmcgaw/gluetun
