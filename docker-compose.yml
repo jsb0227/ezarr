@@ -159,3 +159,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 3600
+
+  gluetun:
+    container_name: gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=surfshark
+      - OPENVPN_USER=jbaylis.87@gmail.com
+      - OPENVPN_PASSWORD=c5g@f9uKB00p
+      - SERVER_COUNTRIES=Sweden 
+    image: qmcgaw/gluetun
+    restart: unless-stopped
+
