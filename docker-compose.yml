@@ -168,7 +168,7 @@ services:
       - OPENVPN_PASSWORD=c5g@f9uKB00p
       - SERVER_COUNTRIES=Sweden 
     cap_add: 
-      - NET-ADMIN
+      - NET_ADMIN
     image: qmcgaw/gluetun
     restart: unless-stopped
 
