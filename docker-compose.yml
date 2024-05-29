@@ -1,6 +1,23 @@
 ---
 version: "3.1"
 services:
+  
+  gluetun:
+    container_name: gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=surfshark
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=4F2VxogM0d02Gc+/gQP5LxAQByCIBhBzOavUvUnr7lU= 
+      - WIREGUARD_ADDRESSES="10.14.0.2/16"
+    cap_add: 
+      - NET_ADMIN
+    image: qmcgaw/gluetun
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "6881:6881"
+      - "6881:6881/udp"
+ 
   sonarr:
     image: linuxserver/sonarr:latest
     container_name: sonarr
@@ -161,18 +178,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 3600
 
-  gluetun:
-    container_name: gluetun
-    environment:
-      - VPN_SERVICE_PROVIDER=surfshark
-      - VPN_TYPE=wireguard
-      - WIREGUARD_PRIVATE_KEY=4F2VxogM0d02Gc+/gQP5LxAQByCIBhBzOavUvUnr7lU= 
-      - WIREGUARD_ADDRESSES="10.14.0.2/16"
-    cap_add: 
-      - NET_ADMIN
-    image: qmcgaw/gluetun
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-      - "6881:6881"
-      - "6881:6881/udp"
+
